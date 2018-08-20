@@ -1,3 +1,8 @@
+Why would I want to backup my save?
+Lots of reasons. Maybe you need to reformat your computer. Maybe the game crashes often
+and you want a backup in case it crashes while saving, corrupting your save. Whatever
+your reason, you can use this tool to easily backup and restore your MHW save.
+
 This will generate a .bat file which will back up your Monster Hunter World save file to
 a directory of your choosing. It will generate a new backup every time you run the
 output .bat file and the directory will be timestamped like this:

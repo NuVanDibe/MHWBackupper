@@ -21,7 +21,7 @@ Why would I want to backup my save? Lots of reasons. Maybe you need to reformat 
 
 ## How?
 
-Download the latest release and run it. It'll ask you for your SteamID3. This is a unique number associated with every steam account. The .bat file will try to determine what it is, but if it cannot, you can find it on <https://steamidfinder.com/> and the launcher will try to launch this page for you.
+Download the latest release and run it. It'll ask you for your SteamID3. This is a unique number associated with every steam account. The .bat file will try to determine what it is, but if it cannot, you can find it on <https://steamidfinder.com/> and the launcher will offer to launch this page for you.
 
 Once you have your SteamID3 put in, it'll ask for the destination directory. This should be typed in using the standard drive:\directory syntax. For example:
 ``C:\Backups\Monster Hunter World``

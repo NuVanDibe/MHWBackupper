@@ -1,7 +1,7 @@
 rem You can remove all text above this line and run this again to set up a new .bat file.
 @echo off
 cls
-
+for /F "usebackq tokens=3*" %%A IN (`reg query HKCU\Software\Valve\Steam /v SteamPath`) DO set usrdata=%%A %%B\userdata\
 if "%steamid%"=="" (
 goto setid
 ) else (
@@ -15,11 +15,11 @@ if %tmpvar:~11,2% LSS 10 set tmpvar=%tmpvar:~0,11%0%tmpvar:~-7%
 
 if exist "%backuplocation%\%tmpvar%" rd /s /q "%backuplocation%\%tmpvar%"
 
-xcopy /e /h /i "%programfiles(x86)%\Steam\userdata\%steamid%\582010" "%backuplocation%\%tmpvar%\save"
+xcopy /e /h /i "%usrdata%%steamid%\582010" "%backuplocation%\%tmpvar%\save"
 
 (
-echo if exist "%programfiles(x86)%\Steam\userdata\%steamid%\582010" rd /s /q "%programfiles(x86)%\Steam\userdata\%steamid%\582010"
-echo xcopy /e /h /i save "%programfiles(x86)%\Steam\userdata\%steamid%\582010"
+echo if exist "%usrdata%%steamid%\582010" rd /s /q "%usrdata%%steamid%\582010"
+echo xcopy /e /h /i save "%usrdata%%steamid%\582010"
 )>"%backuplocation%\%tmpvar%\restore.bat"
 
 goto eof
@@ -41,7 +41,11 @@ echo corrupt your save! I'm not responsible if something goes wrong!
 echo.
 pause
 echo.
-for /f %%G in ('dir "%programfiles(x86)%\Steam\userdata\*" /b') do set sid=%%~G
+set numfolders=0
+for /f %%G in ('dir "%usrdata%*" /b') do (
+set sid=%%~G
+set numfolders=numfolders+1
+)
 echo You need to set the Steam ID. This is most likely %sid%, unless you've signed into multiple Steam accounts.
 set /p steamid=Type Steam ID: 
 echo.

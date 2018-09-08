@@ -2,6 +2,7 @@ rem You can remove all text above this line and run this again to set up a new .
 @echo off
 cls
 for /F "usebackq tokens=3*" %%A IN (`reg query HKCU\Software\Valve\Steam /v SteamPath`) DO set usrdata=%%A %%B\userdata\
+set usrdata=%usrdata:/=\%
 if "%steamid%"=="" (
 goto setid
 ) else (
@@ -16,10 +17,11 @@ dir "%usrdata%%steamid%\582010" > nul || goto errornosource
 dir "%backuplocation%\%tmpvar%" > nul && rd /s /q "%backuplocation%\%tmpvar%"
 xcopy /e /h /i "%usrdata%%steamid%\582010" "%backuplocation%\%tmpvar%\save"
 (
-rem todo: the next line is run instead of being echoed?
 echo rd /s /q "%usrdata%%steamid%\582010"
 echo xcopy /e /h /i save "%usrdata%%steamid%\582010"
+echo msg /time:4 "%username%" Restore to %usrdata:)=^)%%steamid%\582010 was successful.
 )>"%backuplocation%\%tmpvar%\restore.bat"
+msg /time:4 "%username%" Backup to %backuplocation%\%tmpvar% was successful.
 
 
 goto eof

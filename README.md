@@ -1,13 +1,11 @@
-# MHW Backupper
+# MHW Backupper<br/>
 
-#
 #### Warning!
 ##### Do not backup or restore while Monster Hunter World is running! Doing so could corrupt your save! I'm not responsible if something goes wrong!
-#
-#
+
 #### Another warning!
-##### Restoring a save cannot be undone!
-#
+##### Restoring a save cannot be undone!<br/>
+
 ## TL;DR
 Run MHWBackupper.bat and fill in the requested information. At the end, you'll generate another .bat file which is tailored to your Steam profile directory and preferred backup directory. In your backup directory, you'll find a restore.bat file which will restore your MHW save.
 
@@ -26,7 +24,9 @@ Download the latest release and run it. It'll ask you for your SteamID3. This is
 Once you have your SteamID3 put in, it'll ask for the destination directory. This should be typed in using the standard drive:\directory syntax. For example:
 ``C:\Backups\Monster Hunter World``
 
-Finally, it'll ask you to set an output filename. In order to work properly, it must end in ``.bat`` or ``.cmd``.
+Next, it'll ask you to set an output filename. In order to work properly, it must end in ``.bat`` or ``.cmd``.
+
+Finally, it will ask you how many seconds you want the "job finished" popup will last before auto-dismissing itself. You can also disable the popup by leaving this blank.
 
 This will generate a second .bat file which will back up your Monster Hunter World save file to a directory of your choosing.
 
